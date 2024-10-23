@@ -3,9 +3,10 @@ import time
 import requests
 import os
 import hashlib
+import json
 from argparse import ArgumentParser
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import date, datetime
+from datetime import datetime
 
 # ua头数组
 user_agents = [
@@ -31,6 +32,7 @@ headers = {
     "Te": "trailers"
 }
 email_count = 0
+leak_email_count = 0
 password_count =0
 # 读取文件
 def read_file(file_path):
@@ -48,7 +50,7 @@ def read_file(file_path):
 def check_leak(email_addr):
     global email_count
     url = "https://api.haveibeenbreached.com/?contact=" + email_addr
-    print(f"[+]正在检查邮件：{email_addr} 的泄露情况...")
+    print(f"[+]正在检查邮箱：{email_addr} 的泄露情况...")
     # 最多重放次数
     max_retries = 3
     for attempt in range(max_retries):
@@ -72,14 +74,23 @@ def check_leak(email_addr):
                     #     with open("DataBreachEmailsLog.txt", 'a', encoding='utf-8') as file:
                     #         file.write(f"邮箱: {email_addr} 不存在泄露！\n")
                 else:
+                    # 将JSON字符串转换为Python列表
+                    data = json.loads(content)
+                    # 泄露次数
+                    array_size = len(data)
+                    names = []
+                    for item in data:
+                        name = item.get("Name")
+                        names.append(name)
+                    print(f"第{attempt+1}次检测中，邮箱: {email_addr} 存在泄露！泄露次数为：{array_size}，具体泄露情报已写入result目录下的txt文件中。跳转下个邮箱...")
                     # 写入存在泄露邮箱的具体信息到result目录下
                     result_dir = "result"
                     os.makedirs(result_dir, exist_ok=True)
-                    file_path = os.path.join(result_dir, email_addr + ".txt")
-                    with open(file_path, 'w', encoding='utf-8') as file:
-                        file.write(content)
-                    print(f"第{attempt+1}次检测中，邮箱: {email_addr} 存在泄露！内容已写入result目录下对应邮箱名的txt文件中。跳转下个邮箱...")
-                    # 将存在泄露的邮箱记录写入文件DataBreachEmailsLog.txt
+                    file_path = os.path.join(result_dir, "EmailsLog.txt")
+                    with open(file_path, 'a', encoding='utf-8') as file:
+                        file.write(f"邮箱: {email_addr}，泄露次数为：{array_size}，泄露情报：{names}\n")
+
+                    # 将存在泄露的邮箱记录写入文件DataBreachEmailsLog.txt进行汇总
                     with open("DataBreachEmailsLog.txt", 'a', encoding='utf-8') as file:
                         file.write(f"{email_addr}\n")
                     email_count += 1
@@ -129,7 +140,7 @@ def check_pass_leak(password):
 # 批量检测密码是否泄露
 def batch_check_pass_leak(passwords):
     with open("DataBreachPasswordsLog.txt", 'a', encoding='utf-8') as file:
-        file.write(f"\n批量检测密码泄露记录于：{datetime.now()}\n")
+        file.write(f"\n批量检测密码泄露记录于：{datetime.now()},以下是存在泄露的密码：\n")
     with ThreadPoolExecutor(max_workers=10) as executor:
         executor.map(check_pass_leak, passwords)
         # futures = [executor.submit(check_pass_leak, password) for password in passwords]

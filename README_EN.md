@@ -10,7 +10,7 @@
 
 The algorithm implementation is as follows:
 
-![image](README_EN.assets/image-20241023125855-224z3pw.png)
+![image](assets/image-20241023125855-224z3pw.png)
 
 ## Features
 
@@ -67,7 +67,7 @@ python pwned_tool.py -e tom@gmail.com
 
 The response results are stored in the corresponding file in the `result` directory:
 
-![image](README_EN.assets/image-20241023123305-cpmyvyf.png)
+![image-20241023165545888](assets/image-20241023165545888.png)
 
 ### Testing a Single Password
 
@@ -75,13 +75,13 @@ The response results are stored in the corresponding file in the `result` direct
 python pwned_tool.py -p admin123
 ```
 
-![image](README_EN.assets/image-20241023123627-q26tb9r.png)
+![image-20241023165938499](assets/image-20241023165938499.png)
 
 ### Batch Testing Emails
 
 Assuming you have a list file `emails.txt` containing email addresses, one per line.
 
-![image](README_EN.assets/image-20241023124143-jp4jtza.png)
+![image-20241023170013659](assets/image-20241023170013659.png)
 
 Run the following command to test:
 
@@ -89,15 +89,15 @@ Run the following command to test:
 python pwned_tool.py -f emails.txt
 ```
 
-![image](README_EN.assets/image-20241023124412-qwpwl2w.png)
+![image-20241023170104073](assets/image-20241023170104073.png)
 
 The detection results are stored in `DataBreachEmailsLog.txt` in the current directory:
 
-![image](README_EN.assets/image-20241023124432-f6c7olz.png)
+![image-20241023170259496](assets/image-20241023170259496.png)
 
 The response results are stored in the corresponding file in the `result` directory:
 
-![image](README_EN.assets/image-20241023124455-p0p15ny.png)
+![image-20241023170338048](assets/image-20241023170338048.png)
 
 ### Batch Testing Passwords
 
@@ -105,9 +105,15 @@ The response results are stored in the corresponding file in the `result` direct
 python pwned_tool.py -pf pass.txt
 ```
 
+![image-20241023170510626](assets/image-20241023170510626.png)
+
 The detection results are stored in `DataBreachPasswordsLog.txt` in the current directory:
 
-![image](README_EN.assets/image-20241023122752-kudi2yc.png)
+![image-20241023170716082](assets/image-20241023170716082.png)
+
+## Note
+
+It is necessary to clarify that **the logic for detecting password breaches here is actually comparing the password you input with publicly leaked intelligence. If they match, it is considered a password breach! It has nothing to do with the email account being tested!**
 
 ## Contributing
 

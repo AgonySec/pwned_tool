@@ -67,9 +67,11 @@ options:
 python pwned_tool.py -e tom@gmail.com
 ```
 
-![image](assets/image-20241023123305-cpmyvyf.png)​
+![image-20241023165545888](assets/image-20241023165545888.png)
 
-　　响应结果存放在result目录下对应的文件：
+　　具体泄露情报存放在result目录下对应的EmailsLog.txt文件：
+
+![image-20241023165938499](assets/image-20241023165938499.png)
 
 ### 检测单个密码
 
@@ -77,7 +79,7 @@ python pwned_tool.py -e tom@gmail.com
 python pwned_tool.py -p admin123
 ```
 
-![image](assets/image-20241023123627-q26tb9r.png)​
+![image-20241023170013659](assets/image-20241023170013659.png)
 
 　　‍
 
@@ -85,7 +87,7 @@ python pwned_tool.py -p admin123
 
 　　假设您有一个包含邮箱的列表文件 `emails.txt`​，每行一个邮箱地址。
 
-![image](assets/image-20241023124143-jp4jtza.png)​
+![image-20241023170104073](assets/image-20241023170104073.png)
 
 　　运行以下命令进行检测：
 
@@ -93,19 +95,17 @@ python pwned_tool.py -p admin123
 python pwned_tool.py -f emails.txt
 ```
 
-![image](assets/image-20241023124412-qwpwl2w.png)​
+![image-20241023170259496](assets/image-20241023170259496.png)
 
-　　检测结果存放在当前目录下的`DataBreachEmailsLog.txt`​中：
+　　存在泄露的邮箱记录存放在当前目录下的`DataBreachEmailsLog.txt`​中：
 
-![image](assets/image-20241023124432-f6c7olz.png)​
+![image-20241023170320315](assets/image-20241023170320315.png)
 
-　　响应结果存放在result目录下对应的文件：
+　　具体泄露情报存放在result目录下对应的`EmailsLog.txt`文件：
 
-![image](assets/image-20241023124455-p0p15ny.png)​
+![image-20241023170338048](assets/image-20241023170338048.png)
 
-　　‍
-
-　　‍
+　　	
 
 ### 批量检测密码
 
@@ -113,13 +113,15 @@ python pwned_tool.py -f emails.txt
 python pwned_tool.py -pf pass.txt
 ```
 
-![image](assets/image-20241023122752-kudi2yc.png)​
+![image-20241023170510626](assets/image-20241023170510626.png)
 
-　　检测结果存放在当前目录下的`DataBreachPasswordsLog.txt`​中：
+　　将存在结果存放在当前目录下的`DataBreachPasswordsLog.txt`​中：
 
-![image](assets/image-20241023123108-yzfil14.png)​
+![image-20241023170716082](assets/image-20241023170716082.png)
 
-　　‍
+## 注意
+
+有必要解释清楚，**这里的检测密码泄露逻辑，其实是在拿你输入的密码在公开泄露情报中比较，如果相同则视为密码泄露！跟检测的邮箱账号毫无关联！**
 
 ## 贡献
 
