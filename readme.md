@@ -1,5 +1,7 @@
 # Pwned_tool - 检查你的邮箱和密码
 
+[English][url-docen]
+
 ## 介绍
 
 　　一款基于 Python3 实现的邮箱和密码泄露检测工具，支持批量检测，采用`haveibeenbreached`​来验证邮箱泄露情况，此项目无需依赖官方付费API即可使用！密码验证采用的是`haveibeenpwned`​网站的API 。
@@ -8,7 +10,7 @@
 
 　　算法实现如下：
 
-​![image](assets/image-20241023125855-224z3pw.png)​
+![image](assets/image-20241023125855-224z3pw.png)​
 
 ## 功能特点
 
@@ -21,15 +23,23 @@
 
 　　前提：**使用** **​`python3`​**​  **版本 运行**
 
-1. **安装依赖**：  
-    确保已安装 Python 环境。然后通过 pip 安装所需的依赖库：
+1. **下载项目**： 
+
+```
+git clone https://github.com/AgonySec/pwned_tool
+```
+
+2. **配置依赖**：
+
+   确保已安装 Python 环境。然后通过 pip 安装所需的依赖库：
 
 ```go
+
 pip3 install -r requirements.txt
 ```
 
-2. **运行工具**：  
-    使用命令行工具运行脚本，并传入需要检测的邮箱或密码列表文件：
+3. **运行工具**：  
+   使用命令行工具运行脚本，并传入需要检测的邮箱或密码列表文件：
 
 ```python
 python pwned_tool.py
@@ -57,7 +67,7 @@ options:
 python pwned_tool.py -e tom@gmail.com
 ```
 
-​![image](assets/image-20241023123305-cpmyvyf.png)​
+![image](assets/image-20241023123305-cpmyvyf.png)​
 
 　　响应结果存放在result目录下对应的文件：
 
@@ -67,7 +77,7 @@ python pwned_tool.py -e tom@gmail.com
 python pwned_tool.py -p admin123
 ```
 
-​![image](assets/image-20241023123627-q26tb9r.png)​
+![image](assets/image-20241023123627-q26tb9r.png)​
 
 　　‍
 
@@ -75,7 +85,7 @@ python pwned_tool.py -p admin123
 
 　　假设您有一个包含邮箱的列表文件 `emails.txt`​，每行一个邮箱地址。
 
-​![image](assets/image-20241023124143-jp4jtza.png)​
+![image](assets/image-20241023124143-jp4jtza.png)​
 
 　　运行以下命令进行检测：
 
@@ -83,15 +93,15 @@ python pwned_tool.py -p admin123
 python pwned_tool.py -f emails.txt
 ```
 
-​![image](assets/image-20241023124412-qwpwl2w.png)​
+![image](assets/image-20241023124412-qwpwl2w.png)​
 
 　　检测结果存放在当前目录下的`DataBreachEmailsLog.txt`​中：
 
-​![image](assets/image-20241023124432-f6c7olz.png)​
+![image](assets/image-20241023124432-f6c7olz.png)​
 
 　　响应结果存放在result目录下对应的文件：
 
-​![image](assets/image-20241023124455-p0p15ny.png)​
+![image](assets/image-20241023124455-p0p15ny.png)​
 
 　　‍
 
@@ -103,11 +113,11 @@ python pwned_tool.py -f emails.txt
 python pwned_tool.py -pf pass.txt
 ```
 
-​![image](assets/image-20241023122752-kudi2yc.png)​
+![image](assets/image-20241023122752-kudi2yc.png)​
 
 　　检测结果存放在当前目录下的`DataBreachPasswordsLog.txt`​中：
 
-​![image](assets/image-20241023123108-yzfil14.png)​
+![image](assets/image-20241023123108-yzfil14.png)​
 
 　　‍
 
@@ -121,6 +131,6 @@ python pwned_tool.py -pf pass.txt
 
 ---
 
-　　感谢使用 pwd_tool！
+　　感谢使用 pwned_tool！
 
-　　‍
+[url-docen]: README_EN.md

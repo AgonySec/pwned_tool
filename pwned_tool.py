@@ -110,20 +110,15 @@ def check_pass_leak(password):
     url = "https://api.pwnedpasswords.com/range/{}".format(prefix)
 
     req = requests.get(url, headers=header).content.decode('utf-8')
-    # split the result twice - each line into key, value pairs of hash-postfixes and the usage count.
     hashes = dict(t.split(":") for t in req.split('\r\n'))
-
-    # add the prefix to the key values (hashes) of the hashes dictionary
     hashes = dict((prefix + key, value) for (key, value) in hashes.items())
 
     for item_hash in hashes:
         if item_hash == hash_string:
             password_count += 1
-
             with open("DataBreachPasswordsLog.txt", 'a', encoding='utf-8') as file:
                 file.write(f"密码: {password} 存在泄露！被使用次数：{hashes[hash_string]}\n")
             print(f"密码: {password} 存在泄露！被使用次数：{hashes[hash_string]}")
-            # print("{} has previously appeared in a data breach, used {} times, and should never be used. ".format(password,hashes[hash_string]))
             break
 
     if hash_string != item_hash:
