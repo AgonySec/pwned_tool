@@ -1,0 +1,8 @@
+{
+    "SensitiveWords": [],
+    "BlacklistUsers": [],
+    "SearchList" : [],
+    "github_token": "",
+    "search_types" : ["issues", "code","repositories"],
+    "Hunter_API_KEY": ""
+}

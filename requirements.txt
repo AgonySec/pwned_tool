@@ -1,7 +1,6 @@
-random
-requests
-os
-hashlib
-argparse
-concurrent.futures
-datetime
+requests~=2.32.3
+openpyxl~=3.1.5
+urllib3~=2.2.3
+pandas~=2.2.3
+PySocks~=1.7.1
+beautifulsoup4~=4.12.3
