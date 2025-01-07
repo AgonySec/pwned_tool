@@ -34,7 +34,7 @@ Prerequisite: **Use** **`python3`** **version to run**， and configure the `con
 1. **Download the Project**:
 
 ```
-git clone https://github.com/AgonySec/pwned_tool
+git clone https://github.com/AgonySec/LeakGuard
 ```
 
 2. **Configure Dependencies**:
@@ -56,7 +56,7 @@ usage: main.py [-h] [-e EMAIL] [-ef EMAIL_FILE] [-p PASSWORD] [-pf PASSFILE] [-o
                [-google GOOGLE_SEARCH] [-ggf GOOGLE_FILE] [-github GITHUB_SEARCH] [-gtf GITHUB_FILE]
                [-hunter HUNTER_SEARCH] [-m {json,xlsx}]
 
-邮箱、密码泄露和关键字 综合检测工具 By Agony
+LeakGuard 邮箱、密码泄露和关键字 综合检测工具 By Agony
 
 options:
   -h, --help            show this help message and exit

@@ -36,7 +36,7 @@
 1. **下载项目**： 
 
 ```
-git clone https://github.com/AgonySec/pwned_tool
+git clone https://github.com/AgonySec/LeakGuard
 ```
 
 2. **配置依赖**：
@@ -57,7 +57,7 @@ usage: main.py [-h] [-e EMAIL] [-ef EMAIL_FILE] [-p PASSWORD] [-pf PASSFILE] [-o
                [-google GOOGLE_SEARCH] [-ggf GOOGLE_FILE] [-github GITHUB_SEARCH] [-gtf GITHUB_FILE]
                [-hunter HUNTER_SEARCH] [-m {json,xlsx}]
 
-邮箱、密码泄露和关键字 综合检测工具 By Agony
+LeakGuard 邮箱、密码泄露和关键字 综合检测工具 By Agony
 
 options:
   -h, --help            show this help message and exit
