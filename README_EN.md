@@ -1,6 +1,6 @@
 # LeakGuard - Check Your Emails and Passwords
 
-​												![](https://badgen.net/github/stars/AgonySec/Pwned_tool)![GitHub download counter](https://img.shields.io/github/downloads/AgonySec/Pwned_tool/total)
+​												![](https://badgen.net/github/stars/AgonySec/LeakGuard)![GitHub download counter](https://img.shields.io/github/downloads/AgonySec/LeakGuard/total)
 
 [中文][url-doczh]
 
@@ -105,7 +105,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-Thank you for using pwned_tool!
+Thank you for using LeakGuard ！
 
 ---
 
